@@ -57,6 +57,8 @@ public class PaymentService {
             PaymentTransaction newTx = new PaymentTransaction();
             newTx.gatewayProvider = provider;
             newTx.externalPaymentId = externalPaymentId;
+            newTx.amount = java.math.BigDecimal.ZERO;
+            newTx.appointmentId = 0L;
             return newTx;
         });
 

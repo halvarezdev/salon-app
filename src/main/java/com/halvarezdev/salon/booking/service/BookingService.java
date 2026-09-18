@@ -20,10 +20,9 @@ public class BookingService {
 
     public boolean isSlotAvailable(String specialistName, LocalDateTime start, LocalDateTime end) {
         long count = Appointment.count(
-            "specialistName = ?1 and status not in (?2, ?3) and ((startTime < ?5 and endTime > ?4))",
+            "specialistName = ?1 and status != ?2 and ((startTime < ?4 and endTime > ?3))",
             specialistName,
             AppointmentStatus.CANCELLED,
-            AppointmentStatus.PENDING_PAYMENT,
             start,
             end
         );
